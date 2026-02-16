@@ -1,0 +1,16 @@
+{
+  "summitName": "AI Summit 2026",
+  "city": "New Delhi, India",
+  "venue": "Bharat Mandapam, New Delhi",
+  "startDate": "2026-02-16",
+  "endDate": "2026-02-20",
+  "days": 5,
+  "stats": {
+    "attendees": 5000,
+    "speakers": 120,
+    "sessions": 60,
+    "countries": 40
+  },
+  "hashtags": ["#AISummitDelhi", "#AISummit2026", "#AIIndia2026"],
+  "archiveMode": false
+}
