@@ -46,15 +46,20 @@ function matchesKeywords(text: string, keywords: string[]): boolean {
 function shouldInclude(title: string, summary: string, source: RSSSource): boolean {
   const text = `${title} ${summary}`
 
-  // Always include if primary summit keyword found
+  // Always include if direct summit keyword found (highest priority)
   if (matchesKeywords(text, PRIMARY_KEYWORDS)) return true
 
+  // For ALL sources: require BOTH an AI keyword AND an India keyword
+  // This ensures we only show AI news with India/summit relevance
+  const hasAI = matchesKeywords(text, AI_KEYWORDS)
+  const hasIndia = matchesKeywords(text, INDIA_KEYWORDS)
+
   if (source.filterStrict) {
-    // Global sources: must match both an AI keyword AND an India keyword
-    return matchesKeywords(text, AI_KEYWORDS) && matchesKeywords(text, INDIA_KEYWORDS)
+    // Global outlets: strict — must have both AI + India signal
+    return hasAI && hasIndia
   } else {
-    // India/official sources: any AI keyword is enough
-    return matchesKeywords(text, AI_KEYWORDS)
+    // India outlets: also require AI + India (no generic Indian startup/business news)
+    return hasAI && hasIndia
   }
 }
 

@@ -8,8 +8,6 @@ const NAV = [
   { href: '/', label: 'Feed' },
   { href: '/schedule', label: 'Schedule' },
   { href: '/live', label: 'Social' },
-  { href: '/play', label: 'Play' },
-  { href: '/insights', label: 'Insights' },
 ]
 
 export default function Header() {
