@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/layout/Header'
-import PulseBar from '@/components/layout/PulseBar'
-import StatsTicker from '@/components/layout/StatsTicker'
 import BottomNav from '@/components/layout/BottomNav'
 
 export const metadata: Metadata = {
@@ -29,9 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-slate-950 text-slate-100 antialiased">
         <Header />
-        <PulseBar />
-        <StatsTicker />
-        <main className="max-w-7xl mx-auto px-4 py-6 pb-20 md:pb-6">
+        <main className="max-w-7xl mx-auto px-4 py-5 pb-20 md:pb-8">
           {children}
         </main>
         <BottomNav />
